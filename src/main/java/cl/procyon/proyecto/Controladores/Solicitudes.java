@@ -24,9 +24,15 @@ public class Solicitudes {
     @Qualifier("serviciosolicitud")
     ServicioSolicitud solicitud;
 
+    // @GetMapping()
+    // public List<Solicitud> obtenerporStatus(@RequestParam(name="status", required=false) boolean active){
+    //     return solicitud.obtenerporStatus(active);
+    // }
+
     @GetMapping()
-    public List<Solicitud> obtenerporStatus(@RequestParam(name="status", required=false) boolean active){
-        return solicitud.obtenerporStatus(active);
+    public List<Solicitud> solicitudesPor(@RequestParam(name = "status", required = false) Boolean active,
+                           @RequestParam(name = "resourceType", required = false) Integer resource) throws Exception {
+        return solicitud.solicitudesFiltro(active,resource);
     }
 
     @GetMapping("/")

@@ -16,7 +16,7 @@ public class Solicitud {
     @GeneratedValue(generator="incrementsolicitud")
     long id;
     @Column(name = "resource_type")
-    int resource_type;
+    int resourceType;
     @Column(name = "id_patient")
     int idPatient;
     @Column(name = "procedure_type")
@@ -58,8 +58,8 @@ public class Solicitud {
         return this.id;
     }
 
-    public int getResource_type(){
-        return this.resource_type;
+    public int getResourceType(){
+        return this.resourceType;
     }
 
     public int getIdPatient(){
@@ -89,7 +89,7 @@ public class Solicitud {
 
     // Metodos para setear valores
     public void setResource(int resourceType){
-        this.resource_type = resourceType;
+        this.resourceType = resourceType;
     }
 
     public void setPaciente(int idPaciente){
