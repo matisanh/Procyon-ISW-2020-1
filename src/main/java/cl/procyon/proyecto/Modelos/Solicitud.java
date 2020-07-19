@@ -14,7 +14,7 @@ public class Solicitud {
     @Id
     @GenericGenerator(name="incrementsolicitud", strategy="increment")
     @GeneratedValue(generator="incrementsolicitud")
-    int id;
+    long id;
     @Column(name = "resource_type")
     int resource_type;
     @Column(name = "id_patient")
@@ -54,7 +54,7 @@ public class Solicitud {
     //     this.date = date;
     // }
 
-    public int getID(){
+    public long getID(){
         return this.id;
     }
 

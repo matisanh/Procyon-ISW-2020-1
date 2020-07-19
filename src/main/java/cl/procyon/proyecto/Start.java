@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Start {
     @RequestMapping(value="/", method=RequestMethod.GET)
     public @ResponseBody String start(){
-        return "NKalde y Rudolf lo + Grandes";
+        return "Hola!";
     }
 
     
