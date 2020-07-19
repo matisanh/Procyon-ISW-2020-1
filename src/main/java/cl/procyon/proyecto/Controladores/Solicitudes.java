@@ -1,4 +1,4 @@
-cpackage cl.procyon.proyecto.Controladores;
+package cl.procyon.proyecto.Controladores;
 
 import java.util.List;
 
