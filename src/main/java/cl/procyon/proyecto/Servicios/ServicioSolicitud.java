@@ -63,7 +63,7 @@ public class ServicioSolicitud {
         else if(!(active == null)){
             return repo.findByActive(active);
         }
-        return null;
+        return repo.findByActive(true);
     }
     
     public String getCurrentTime(){
