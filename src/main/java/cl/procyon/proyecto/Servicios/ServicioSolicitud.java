@@ -34,13 +34,42 @@ public class ServicioSolicitud {
         return repo.findById(id);
     }
 
+    public void desactivar(long id) {
+        Solicitud sol = repo.findById(id);
+        sol.setStatus(false);
+        repo.save(sol);
+	}
+
+	public void activar(long id) {
+        Solicitud sol = repo.findById(id);
+        sol.setStatus(true);
+        repo.save(sol);
+    }
+    
     public List<Solicitud> obtenerAll(){
         return repo.findAll();
     }
 
+    public List<Solicitud> obtenerporStatus(boolean active){
+        return repo.findByActive(active);
+    }
+    public List<Solicitud> solicitudesFiltro(Boolean active, Integer resourceType) {
+        if(!(resourceType == null)&!(active == null)){
+            return repo.findByActiveAndResourceType(active, resourceType);
+        }
+        else if(!(resourceType == null)){
+            return repo.findByresourceType(resourceType.intValue());
+        }
+        else if(!(active == null)){
+            return repo.findByActive(active);
+        }
+        return repo.findByActive(true);
+    }
+    
     public String getCurrentTime(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();  
         return dtf.format(now);
     }
+
 }
